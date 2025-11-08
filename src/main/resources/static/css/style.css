@@ -1,0 +1,227 @@
+/* --- Estilos Generales --- */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #ffffff; /* Fondo blanco como en la imagen */
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto; /* Centra el contenido */
+    padding: 0 20px;
+}
+
+/* --- Header / Navegación --- */
+header {
+    position: sticky;      /* Hace que el header se quede arriba */
+    top: 0;                /* Lo pega a la parte superior */
+    z-index: 999;          /* Se mantiene por encima del contenido */
+    background: #ffffff;   /* Fondo para que no se vea transparente */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid #eee; /* Línea suave separadora */
+    transition: box-shadow 0.3s ease;
+}
+
+
+header .logo {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #444;
+}
+.logo a {
+    text-decoration: none;
+    color: inherit; /* Usa el mismo color que el texto original */
+}
+
+header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+header nav li {
+    margin-left: 30px; /* Espacio entre enlaces */
+}
+
+header nav a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 600;
+    font-size: 0.9em;
+}
+
+/* --- Sección Principal (Hero) --- */
+.hero {
+    display: flex; /* Crea el layout de dos columnas */
+    align-items: center;
+    padding: 40px 0;
+    gap: 20px; /* Espacio entre texto e imagen */
+}
+
+/* Columna de Texto */
+.hero-text {
+    flex: 1; /* Ocupa la mitad del espacio */
+    padding-right: 20px;
+}
+
+.hero-text .brand {
+    font-weight: bold;
+    color: #555;
+    font-size: 1.1em;
+}
+
+.hero-text h1 {
+    font-size: 3.5em; /* Tamaño grande para el título */
+    margin: 10px 0;
+    line-height: 1.1;
+    color: #222;
+}
+
+.hero-text p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: #2522d6; /* Un color verde-azulado similar */
+    color: #ffffff;
+    padding: 15px 35px;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Columna de Imagen */
+.hero-image {
+    flex: 1; /* Ocupa la otra mitad */
+    text-align: center;
+}
+
+.hero-image img {
+    max-width: 100%; /* La imagen se ajusta al contenedor */
+    height: auto;
+}
+/* --- Botón Descargar Software --- */
+.download-btn {
+    background-color: #0a8510;
+    padding: 10px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff !important;
+    transition: 0.3s ease;
+    border: none;
+}
+
+.download-btn:hover {
+    background-color: #3022b6;
+}/* ========== VER MÁS / VER MENOS CONTENIDO ========== */
+
+#moreInfo {
+    margin-top: 30px;
+    padding: 25px;
+    background: #fafaff;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    animation: fadeDown 0.35s ease;
+}
+
+/* Animación suave al mostrar */
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajuste del título y texto dentro de VER MÁS */
+#moreInfo h2 {
+    margin-top: 0;
+    color: #2522d6;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+#moreInfo ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+#moreInfo li {
+    margin-bottom: 8px;
+    font-size: 16px;
+    color: #444;
+}
+
+/* Botón cambia visualmente entre VER MÁS / VER MENOS */
+.cta-button {
+    transition: all 0.3s ease;
+}
+
+.cta-button.active {
+    background-color: #444;
+    color: #fff;
+}
+
+/* ========== SOPORTE ========== */
+
+.support-title {
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    margin-top: 60px;
+    margin-bottom: 15px;
+    color: #222;
+}
+
+.support-subtitle {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 50px;
+    color: #555;
+}
+
+.support-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #2522d6;
+    padding: 5px 0;
+    flex-wrap: wrap;
+}
+
+.support-box {
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    padding: 20px;
+}
+
+.support-box h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.support-box a {
+    color: #fff;
+    font-size: 20px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.support-box a:hover {
+    text-decoration: underline;
+}

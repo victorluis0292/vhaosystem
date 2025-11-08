@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Soporte VHAO</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ✅ Reutilizamos el header -->
+    <div th:replace="header :: header"></div>
+
+    <main class="support-section">
+
+        <h1 class="support-title">Soporte VHAO Punto de venta</h1>
+        <p class="support-subtitle">Comunícate con nosotros por el medio de tu preferencia.</p>
+
+        <div class="support-container">
+
+            <div class="support-box">
+                <h2>Messenger</h2>
+            <a href="https://m.me/vhaosystem"target="_blank">@vhaopdv</a>
+            </div>
+
+            <div class="support-box">
+                <h2>WhatsApp</h2>
+                <a href="https://wa.me/5218139939981?text=" target="_blank">+52 1 81 3993 9981</a>
+            </div>
+<!--
+            <div class="support-box">
+                <h2>Email</h2>
+                <a href="mailto:soporte@vhao.com">soporte@vhao.com</a>
+            </div>
+        -->
+
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

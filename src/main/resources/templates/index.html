@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VHAO System</title>
+
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ✅ Header (logo + menú) -->
+    <div th:replace="header :: header"></div>
+
+    <!-- ✅ Sección principal -->
+    <main class="hero">
+
+        <div class="hero-text">
+            <span class="brand">VHAO SYSTEM</span>
+
+            <h1>
+                VHAO<br>PUNTO DE VENTA
+            </h1>
+
+            <p>Sencilla, rápida y completa aplicación de punto de venta.</p>
+
+            <!-- ✅ Botón de ver más -->
+            <a href="#" class="cta-button" id="toggleInfoBtn">VER MÁS</a>
+        </div>
+
+        <div class="hero-image">
+            <img th:src="@{/images/mi-imagen-monitor.png}" 
+                 alt="VHAO Punto de Venta en un monitor">
+        </div>
+
+    </main>
+
+    <!-- ✅ Sección oculta (contenido extra) -->
+    <div id="moreInfo" style="display: none; margin-top: 40px;">
+        <div th:replace="vermas :: contenido-vermas"></div>
+    </div>
+
+</div>
+
+<!-- ✅ Script para mostrar/ocultar y hacer scroll suave -->
+<script>
+document.getElementById("toggleInfoBtn").addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const content = document.getElementById("moreInfo");
+
+    // Toggle mostrar / ocultar
+    const isHidden = (content.style.display === "none" || content.style.display === "");
+    content.style.display = isHidden ? "block" : "none";
+
+    // Cambiar texto del botón
+    this.textContent = isHidden ? "VER MENOS" : "VER MÁS";
+
+    // Cambiar estilo del botón
+    this.classList.toggle("active", isHidden);
+
+    // Scroll suave hacia abajo al abrir
+    if (isHidden) {
+        content.scrollIntoView({ behavior: "smooth" });
+    } else {
+        // Scroll suave hacia arriba al cerrar
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+});
+</script>
+
+</body>
+</html>
