@@ -1,5 +1,4 @@
 <!-- header.html -->
- <!-- header.html aaa -->
 <div th:fragment="header">
     <header>
         <div class="logo">
@@ -12,11 +11,15 @@
                 <!--<li><a th:href="@{/contacto}">CONTACTO</a></li> -->
 
                 <li>
-                    <a th:href="@{/downloads/VHAOPDVOnlineSetup.exe}"
+                    <a href="https://github.com/victorluis0292/vhaosystem/releases/download/1.4/VHAOPDVOnlineSetup.exe"
                        class="download-btn"
-                       download>
-                       DESCARGAR SOFTWARE.
+                       target="_blank"
+                       rel="noopener">
+                       DESCARGAR SOFTWARE
                     </a>
+                    <p style="font-size: 0.8em; color: #555; margin-top: 5px;">
+                        SHA-256: d6b8b2336b0042d663446d1604e47dde498289ee78a7a57c460aad79c7ee4ad2
+                    </p>
                 </li>
             </ul>
         </nav>
