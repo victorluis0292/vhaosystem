@@ -1,0 +1,23 @@
+<!-- header.html -->
+<div th:fragment="header">
+    <header>
+        <div class="logo">
+    <a th:href="@{/}">VHAO SYSTEM</a>
+</div>
+        <nav>
+            <ul>
+                <li><a th:href="@{/productos}">PRODUCTOS</a></li>
+                <li><a th:href="@{/soporte}">SOPORTE</a></li>
+              <!--<li><a th:href="@{/contacto}">CONTACTO</a></li> -->
+
+                <li>
+                    <a th:href="@{/downloads/VHAOPDVOnlineSetup.exe}"
+                       class="download-btn"
+                       download>
+                       DESCARGAR SOFTWARE
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+</div>
