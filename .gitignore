@@ -31,6 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 ### Archivos grandes y binarios ###
 ### Archivos grandes y binarios ###
 *.exe
@@ -38,3 +39,5 @@ build/
 *.rar
 *.msi
 *.bat
+=======
+>>>>>>> cfa48318870b6de6d8000724b823a22b7731bc68
