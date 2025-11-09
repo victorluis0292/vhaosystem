@@ -271,7 +271,7 @@ header nav a {
     }
 }
 
-/* --- Móviles (pantallas pequeñas) --- */
+/* --- Móviles (pantallas pequeñas) ---- */
 @media (max-width: 600px) {
     .hero-text h1 {
         font-size: 2em;
