@@ -19,4 +19,8 @@
             </ul>
         </nav>
     </header>
+    
+    <!-- Enlaces a CSS y JS con versionado para evitar cache -->
+    <link rel="stylesheet" th:href="@{/css/styles.css(v=${version})}" />
+    <script th:src="@{/js/main.js(v=${version})}"></script>
 </div>
