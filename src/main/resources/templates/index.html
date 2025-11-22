@@ -13,7 +13,7 @@
 <div class="container">
 
     <!-- ✅ Header (logo + menú) -->
-    <div th:replace="header :: header"></div>
+    <div th:replace="~{header :: header}"></div>
 
     <!-- ✅ Sección principal -->
     <main class="hero">
@@ -27,50 +27,80 @@
 
             <p>Sencilla, rápida y completa aplicación de punto de venta.</p>
 
-            <!-- ✅ Botón de ver más --->
+            <!-- ✅ Botón de ver más -->
             <a href="#" class="cta-button" id="toggleInfoBtn">VER MÁS</a>
         </div>
 
-        <div class="hero-image">
-            <img th:src="@{/images/mi-imagen-monitor.png}"  
-                 alt="VHAO Punto de Venta en un monitor">
-        </div>
+      <!-- SLIDER  automatico-->
+<div class="hero-image">
+    <div class="slider">
+        <img class="slide active" th:src="@{/images/mi-imagen-monitor.png}">
+        <img class="slide" th:src="@{/images/SEAFON.png}">
+    </div>
 
+ <!-- PUNTITOS -->
+    <div class="slider-dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+    </div>
+</div>
     </main>
 
     <!-- ✅ Sección oculta (contenido extra) -->
     <div id="moreInfo" style="display: none; margin-top: 40px;">
-        <div th:replace="vermas :: contenido-vermas"></div>
+        <div th:replace="~{vermas :: contenido-vermas}"></div>
     </div>
 
 </div>
 
-<!-- ✅ Script para mostrar/ocultar y hacer scroll suave -->
+<!-- ✅ Script mostrar/ocultar -->
 <script>
 document.getElementById("toggleInfoBtn").addEventListener("click", function (e) {
     e.preventDefault();
 
     const content = document.getElementById("moreInfo");
 
-    // Toggle mostrar / ocultar
     const isHidden = (content.style.display === "none" || content.style.display === "");
     content.style.display = isHidden ? "block" : "none";
 
-    // Cambiar texto del botón
     this.textContent = isHidden ? "VER MENOS" : "VER MÁS";
-
-    // Cambiar estilo del botón
     this.classList.toggle("active", isHidden);
 
-    // Scroll suave hacia abajo al abrir
     if (isHidden) {
         content.scrollIntoView({ behavior: "smooth" });
     } else {
-        // Scroll suave hacia arriba al cerrar
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
 });
 </script>
+
+<!-- ✅ Script del slider -->
+<script>
+    let index = 0;
+    const slides = document.querySelectorAll(".slide");
+    const dots = document.querySelectorAll(".dot");
+
+    function showSlides() {
+        slides.forEach(slide => slide.classList.remove("active"));
+        dots.forEach(dot => dot.classList.remove("active"));
+
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+
+        index = (index + 1) % slides.length;
+    }
+
+    let sliderTimer = setInterval(showSlides, 3000);
+
+    function goToSlide(n) {
+        clearInterval(sliderTimer); // detener auto slide al usar puntitos
+        index = n;
+        showSlides();
+        sliderTimer = setInterval(showSlides, 3000); // reiniciar
+    }
+</script>
+
+
 
 </body>
 </html>
