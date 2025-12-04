@@ -1,6 +1,6 @@
 # Etapa 1: Compilación (Build)
 # Etiqueta correcta: usa 'jdk' en lugar de 'openjdk'
-FROM maven:3.9-jdk-17 AS build  // <--- ¡CAMBIO CLAVE AQUÍ!
+FROM maven:3.9-jdk-17 AS build  # El comentario va con #
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
