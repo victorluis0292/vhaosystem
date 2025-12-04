@@ -1,0 +1,20 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "pom.xml",
+      "use": "@vercel/static-build",
+      "config": {
+        "installCommand": "mvn clean install",
+        "buildCommand": "mvn package",
+        "outputDirectory": "target/classes/static"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(css|images|js|.*\\.(css|js|png|jpg|jpeg|gif|ico|svg|map))",
+      "dest": "/$1"
+    }
+  ]
+}
