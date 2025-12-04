@@ -1,6 +1,6 @@
 # Etapa 1: Compilación (Build)
-# CAMBIO AQUÍ: Usamos la imagen oficial de Maven que incluye JDK 17
-FROM maven:3.9-openjdk-17 AS build 
+# Etiqueta correcta: usa 'jdk' en lugar de 'openjdk'
+FROM maven:3.9-jdk-17 AS build  // <--- ¡CAMBIO CLAVE AQUÍ!
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
@@ -13,7 +13,7 @@ COPY src /app/src
 RUN mvn clean install -DskipTests
 
 # --- Etapa 2: Ejecución (Runtime) ---
-# Mantenemos esta imagen ligera que ya funcionó para la ejecución
+# Mantenemos esta imagen ligera, que ya funcionó antes
 FROM eclipse-temurin:17-jre-alpine
 
 # Establece el puerto de tu aplicación (Spring Boot default)
