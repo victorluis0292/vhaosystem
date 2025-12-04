@@ -1,7 +1,18 @@
 {
-  "name": "vhas-system",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "mvn clean package"
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "pom.xml",
+      "use": "@vercel/java", 
+      "config": {
+        "outputDirectory": "target/classes/static"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(css|images|js|.*\\.(css|js|png|jpg|jpeg|gif|ico|svg|map))",
+      "dest": "/$1"
+    }
+  ]
 }
