@@ -1,26 +1,27 @@
 # Etapa 1: Compilación (Build)
-# Etiqueta correcta: usa 'jdk' en lugar de 'openjdk'
-FROM maven:3.9-jdk-17 AS build  # El comentario va con #
+# Usa imagen con JDK
+FROM maven:3.9-jdk-17 AS build
 
-# Establece el directorio de trabajo dentro del contenedor
+# Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos de Maven
+# Copia archivo pom y descarga dependencias
 COPY pom.xml .
-COPY src /app/src
+RUN mvn dependency:go-offline -B
 
-# Ejecuta la compilación de Maven
-RUN mvn clean install -DskipTests
+# Copia el resto del código
+COPY src ./src
 
-# --- Etapa 2: Ejecución (Runtime) ---
-# Mantenemos esta imagen ligera, que ya funcionó antes
+# Compila
+RUN mvn clean package -DskipTests
+
+# Etapa 2: Ejecutable
 FROM eclipse-temurin:17-jre-alpine
 
-# Establece el puerto de tu aplicación (Spring Boot default)
+WORKDIR /app
+
+COPY --from=build /app/target/*.jar app.jar
+
 EXPOSE 8080
 
-# Copia el JAR ejecutable de la etapa de 'build'
-COPY --from=build /app/target/vhao-system-0.0.1-SNAPSHOT.jar app.jar
-
-# Comando para ejecutar la aplicación Spring Boot
-CMD ["java", "-jar", "/app.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
